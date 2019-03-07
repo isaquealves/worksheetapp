@@ -28,7 +28,7 @@ class TransactionType(enum.Enum):
         params:
         klass (TransactionType):
         """
-        return ***REMOVED***(kind.name, kind.value) for kind in TransactionType***REMOVED***
+        return [(kind.name, kind.value) for kind in TransactionType]
 
 
 class Transaction(models.Model):
