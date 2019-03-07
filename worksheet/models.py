@@ -54,8 +54,7 @@ class Transaction(models.Model):
     name = models.CharField("Name", max_length=20)
     kind = models.CharField("Type", max_length=15, choices=CHOICES)
     amount = models.DecimalField("Amount", max_digits=19,
-                               decimal_places=4,
-                               validators=***REMOVED***DecimalValidator***REMOVED***)
+                               decimal_places=4)
 
     def save(self, *args, **kwargs):
         """ Custom save method

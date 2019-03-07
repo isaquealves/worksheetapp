@@ -1,0 +1,23 @@
+***REMOVED***% extends '../base.html' %***REMOVED***
+***REMOVED***% block content%***REMOVED***
+***REMOVED***% if user.is_authenticated %***REMOVED***
+<table class="table table-primary table-hover">
+    <thead>
+        <tr>
+            <th>Transaction</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        ***REMOVED***% for transaction in transactions %***REMOVED***
+        <tr>
+            <td>***REMOVED******REMOVED*** transaction.name ***REMOVED******REMOVED***</td>
+            <td>***REMOVED******REMOVED*** transaction.amount ***REMOVED******REMOVED***</td>
+        </tr>
+        ***REMOVED***% endfor %***REMOVED***
+    </tbody>
+</table>
+<a href="***REMOVED***% url 'transaction_form' %***REMOVED***" class="btn btn-info">Register a new transaction</a>
+***REMOVED***% endif %***REMOVED***
+
+***REMOVED***% endblock %***REMOVED***
