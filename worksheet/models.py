@@ -66,7 +66,4 @@ class Transaction(models.Model):
             self.amount *= -1
         super().save(*args, **kwargs)
 
-    def get_amount_display(self, *args, **kwargs):
-        pass
-
 
