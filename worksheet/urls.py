@@ -4,5 +4,7 @@ from worksheet import views
 
 urlpatterns = ***REMOVED***
     path('', views.transaction_list, name='transaction_index'),
-    path('form/', views.create_transaction, name='transaction_form')
+    path('form/', views.create_transaction, name='transaction_form'),
+    path('login', views.auth, name='worksheet_login'),
+    path('logout', views.app_logout)
 ***REMOVED***
