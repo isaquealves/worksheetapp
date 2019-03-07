@@ -1,11 +1,13 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from django.contrib.auth import logout
+from django.contrib.auth import (authenticate, login, logout)
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from worksheet.models import Transaction
 
 from .forms import TransactionForm
 
-
+@login_required
 def transaction_list(request):
     context = ***REMOVED******REMOVED***
     if request.user:
@@ -14,17 +16,18 @@ def transaction_list(request):
 
     return render(request, 'transactions/index.html', context)
 
-
+@login_required
 def create_transaction(request, form=None):
 
     if request.method == 'POST':
         data = request.POST
         form = TransactionForm(data=data)
+        import pudb; pudb.set_trace()
         if form.is_valid():
             transaction = form.save(commit=False)
             transaction.user = request.user
             transaction.save()
-            return HttpResponseRedirect('index_view')
+            return HttpResponseRedirect(reverse('transaction_index'))
 
     form = TransactionForm()
     view_context = ***REMOVED***
@@ -35,14 +38,20 @@ def create_transaction(request, form=None):
                   'transactions/transaction.html',
                   context=view_context)
 
-def login(request):
-    username = request.POST***REMOVED***'username'***REMOVED***
-    password = request.POST***REMOVED***'password'***REMOVED***
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return HttpResponseRedirect(redirect_to='transaction_index')
-def logout(request):
+def auth(request):
+    if request.method == 'POST':
+        username = request.POST***REMOVED***'username'***REMOVED***
+        password = request.POST***REMOVED***'password'***REMOVED***
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('transaction_index'))
+    return render(request, 'auth/login.html')
+
+
+
+def app_logout(request):
     logout(request)
+    return HttpResponseRedirect(reverse('transaction_index'))
 
 

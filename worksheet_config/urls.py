@@ -21,5 +21,6 @@ urlpatterns = ***REMOVED***
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path(r'docs/', include_docs_urls(title='Worksheet API')),
-    path('', include('worksheet.urls'))
+    path('', include('worksheet.urls')),
+    path('api/v1/', include('v1.api.urls'))
 ***REMOVED***
