@@ -37,6 +37,11 @@ INSTALLED_APPS = ***REMOVED***
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
+    'rest_framework',
+    'worksheet',
+
+
 ***REMOVED***
 
 MIDDLEWARE = ***REMOVED***
@@ -98,7 +103,8 @@ AUTH_PASSWORD_VALIDATORS = ***REMOVED***
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
 ***REMOVED***,
 ***REMOVED***
-
+LOGIN_URL = 'worksheet_login'
+LOGIN_REDIRECT_URL = 'transaction_list'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
