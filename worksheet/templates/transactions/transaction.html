@@ -1,0 +1,38 @@
+***REMOVED***% extends '../base.html %***REMOVED***
+
+***REMOVED***%block content %***REMOVED***
+<a href="#" onclick="javascript:history.go(-1)"> Back</a>
+***REMOVED******REMOVED*** form.non_field_errors ***REMOVED******REMOVED***
+<div class="col-md-6 offset-md-3">
+    <div class="jumbotron">
+        <h2>Add a new transaction</h2>
+        <form name="transaction_form" class="form" method="POST">
+            ***REMOVED***% csrf_token %***REMOVED***
+            ***REMOVED******REMOVED*** form.user ***REMOVED******REMOVED***
+            <div class="form-group">
+                <label for="***REMOVED******REMOVED*** form.name.id_for_label***REMOVED******REMOVED***">Name</label>
+                ***REMOVED******REMOVED*** form.name***REMOVED******REMOVED***
+            </div>
+            <div class="form-group">
+                <label for="***REMOVED******REMOVED*** form.kind.id_for_label***REMOVED******REMOVED***">Type</label>
+                ***REMOVED******REMOVED*** form.kind***REMOVED******REMOVED***
+            </div>
+            <div class="form-group">
+                <label for="***REMOVED******REMOVED*** form.amount.id_for_label***REMOVED******REMOVED***">Amount</label>
+                ***REMOVED******REMOVED*** form.amount***REMOVED******REMOVED***
+            </div>
+
+            <button type="button" class="saveBtn btn btn-lg btn-success float-right">Save</button>
+        </form>
+    </div>
+</div>
+
+***REMOVED***% endblock %***REMOVED***
+***REMOVED***% block script %***REMOVED***
+ ***REMOVED******REMOVED*** block.super ***REMOVED******REMOVED***
+<script>
+        $('.saveBtn').on('click', function()***REMOVED***
+            $('form***REMOVED***name="transaction_form"***REMOVED***').submit()
+    ***REMOVED***);
+    </script>
+***REMOVED***% endblock %***REMOVED***
