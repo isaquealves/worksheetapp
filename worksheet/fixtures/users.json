@@ -1,0 +1,20 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$C65ZQFDFtpzL$lILpeGnBTcyh41Vu8L5iNX0RffeAYOYSBA4ikx/Kvqw=",
+        "last_login": "2019-03-07T19:54:10.290Z",
+        "is_superuser": true,
+        "username": "admin@celero.com.br",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@celero.com.br",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-03-07T10:02:38.424Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

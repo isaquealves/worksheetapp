@@ -1,0 +1,32 @@
+[
+{
+    "model": "worksheet.transaction",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "name": "Sal\u00e1rio",
+        "kind": "credit",
+        "amount": "2300"
+    }
+},
+{
+    "model": "worksheet.transaction",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "name": "Revis\u00e3o veicular",
+        "kind": "debit",
+        "amount": "650"
+    }
+},
+{
+    "model": "worksheet.transaction",
+    "pk": 3,
+    "fields": {
+        "user": 1,
+        "name": "Escola",
+        "kind": "DEBIT",
+        "amount": "350"
+    }
+}
+]
