@@ -10,19 +10,19 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = ***REMOVED***
+    dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-    ***REMOVED***
+    ]
 
-    operations = ***REMOVED***
+    operations = [
         migrations.CreateModel(
             name='Transaction',
-            fields=***REMOVED***
+            fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=20, verbose_name='Transaction')),
-                ('kind', models.CharField(choices=***REMOVED***('CREDIT', 'credit'), ('DEBIT', 'debit')***REMOVED***, max_length=15, verbose_name='Type')),
-                ('amount', models.DecimalField(decimal_places=4, max_digits=19, validators=***REMOVED***django.core.validators.DecimalValidator***REMOVED***, verbose_name='Amount')),
+                ('kind', models.CharField(choices=[('CREDIT', 'credit'), ('DEBIT', 'debit')], max_length=15, verbose_name='Type')),
+                ('amount', models.DecimalField(decimal_places=4, max_digits=19, validators=[django.core.validators.DecimalValidator], verbose_name='Amount')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ***REMOVED***,
+            ],
         ),
-    ***REMOVED***
+    ]

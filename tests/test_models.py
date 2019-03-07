@@ -13,10 +13,10 @@ def test_transaction_value(transaction):
 def test_trasaction_type(transaction):
     assert transaction.kind == 'credit'
 
-@pytest.mark.parametrize('name,transaction_type,amount',***REMOVED***
+@pytest.mark.parametrize('name,transaction_type,amount',[
  ('test1', TransactionType.DEBIT.value, float(random.getrandbits(65))),
  ('test2', TransactionType.CREDIT.value, float(random.getrandbits(72))),
-***REMOVED***)
+])
 def test_for_invalid_decimal_values(user_ref, name, transaction_type, amount):
     with pytest.raises(InvalidOperation):
         transaction = Transaction.objects.create(user=user_ref,

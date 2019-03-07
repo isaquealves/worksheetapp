@@ -1,7 +1,7 @@
-***REMOVED***% extends '../base.html' %***REMOVED***
-***REMOVED***% load custom_filters %***REMOVED***
-***REMOVED***% block content%***REMOVED***
-***REMOVED***% if user.is_authenticated %***REMOVED***
+{% extends '../base.html' %}
+{% load custom_filters %}
+{% block content%}
+{% if user.is_authenticated %}
 <table class="table table-default table-hover">
     <thead>
         <tr>
@@ -10,21 +10,21 @@
         </tr>
     </thead>
     <tbody>
-        ***REMOVED***% for transaction in transactions %***REMOVED***
-        <tr class="***REMOVED******REMOVED*** transaction.kind|set_row_class ***REMOVED******REMOVED***">
-            <td>***REMOVED******REMOVED*** transaction.name ***REMOVED******REMOVED***</td>
+        {% for transaction in transactions %}
+        <tr class="{{ transaction.kind|set_row_class }}">
+            <td>{{ transaction.name }}</td>
             <td>
-                ***REMOVED***% if transaction.kind|lower == 'debit' %***REMOVED***
-                    ***REMOVED******REMOVED*** transaction.amount|to_negative ***REMOVED******REMOVED***
-                ***REMOVED***% else %***REMOVED***
-                    ***REMOVED******REMOVED*** transaction.amount ***REMOVED******REMOVED***
-                ***REMOVED***% endif%***REMOVED***
+                {% if transaction.kind|lower == 'debit' %}
+                    {{ transaction.amount|to_negative }}
+                {% else %}
+                    {{ transaction.amount }}
+                {% endif%}
             </td>
         </tr>
-        ***REMOVED***% endfor %***REMOVED***
+        {% endfor %}
     </tbody>
 </table>
-<a href="***REMOVED***% url 'transaction_form' %***REMOVED***" class="btn btn-info">Register a new transaction</a>
-***REMOVED***% endif %***REMOVED***
+<a href="{% url 'transaction_form' %}" class="btn btn-info">Register a new transaction</a>
+{% endif %}
 
-***REMOVED***% endblock %***REMOVED***
+{% endblock %}

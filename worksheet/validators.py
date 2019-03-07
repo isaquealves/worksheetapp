@@ -13,7 +13,7 @@ def positive_decimal_validate(number):
         value = Decimal(number)
         if value < 0:
             raise InvalidOperation(
-                '***REMOVED***val***REMOVED*** should be a positive number'.format(val=value),
+                '{val} should be a positive number'.format(val=value),
                 code='negative number'
             )
     except (ValueError, TypeError):
