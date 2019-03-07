@@ -3,3 +3,4 @@ djangorestframework==3.9.2
 django-filter==2.1.0
 dj-database-url
 psycopg2
+gunicorn
