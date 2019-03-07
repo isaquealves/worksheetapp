@@ -20,7 +20,7 @@ class TransactionView(ListAPIView):
     """
     serializer_class= TransactionSerializer
     queryset = Transaction.objects.all()
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated,)
     filter_backends = (OrderingFilter, )
     ordering_fields = ('name', 'amount')
 
@@ -29,7 +29,7 @@ class TransactionDetail(APIView):
     """
     Show details for a single instance of transaction objects
     """
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated,)
 
     def get_object(self, pk):
         try:
