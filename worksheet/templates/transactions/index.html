@@ -1,7 +1,8 @@
 ***REMOVED***% extends '../base.html' %***REMOVED***
+***REMOVED***% load custom_filters %***REMOVED***
 ***REMOVED***% block content%***REMOVED***
 ***REMOVED***% if user.is_authenticated %***REMOVED***
-<table class="table table-primary table-hover">
+<table class="table table-default table-hover">
     <thead>
         <tr>
             <th>Transaction</th>
@@ -10,9 +11,15 @@
     </thead>
     <tbody>
         ***REMOVED***% for transaction in transactions %***REMOVED***
-        <tr>
+        <tr class="***REMOVED******REMOVED*** transaction.kind|set_row_class ***REMOVED******REMOVED***">
             <td>***REMOVED******REMOVED*** transaction.name ***REMOVED******REMOVED***</td>
-            <td>***REMOVED******REMOVED*** transaction.amount ***REMOVED******REMOVED***</td>
+            <td>
+                ***REMOVED***% if transaction.kind|lower == 'debit' %***REMOVED***
+                    ***REMOVED******REMOVED*** transaction.amount|to_negative ***REMOVED******REMOVED***
+                ***REMOVED***% else %***REMOVED***
+                    ***REMOVED******REMOVED*** transaction.amount ***REMOVED******REMOVED***
+                ***REMOVED***% endif%***REMOVED***
+            </td>
         </tr>
         ***REMOVED***% endfor %***REMOVED***
     </tbody>
