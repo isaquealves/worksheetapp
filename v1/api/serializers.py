@@ -30,7 +30,7 @@ class TransactionSerializer(DynamicFieldsModelSerializer):
     Serializer for Transaction model
     """
     user = serializers.StringRelatedField(many=False)
-    amount = serializers.DecimalField(max_digits=19, decimal_places=4, validators=***REMOVED***positive_decimal_validate***REMOVED***)
+    amount = serializers.DecimalField(max_digits=19, decimal_places=4, validators=[positive_decimal_validate])
 
     class Meta:
         """Meta options for serializer
@@ -39,7 +39,7 @@ class TransactionSerializer(DynamicFieldsModelSerializer):
             fields (tuple): A group of fields to be displayed
         """
         model = Transaction
-        fields = ***REMOVED***'pk', 'user', 'name', 'kind', 'amount'***REMOVED***
+        fields = ['pk', 'user', 'name', 'kind', 'amount']
 
     def to_representation(self, obj):
         """To representation
@@ -48,7 +48,7 @@ class TransactionSerializer(DynamicFieldsModelSerializer):
         the amount values as negative in case of 'debit' transactions
         """
         data = super().to_representation(obj)
-        data***REMOVED***'amount'***REMOVED*** = obj.amount
+        data['amount'] = obj.amount
         if 'amount' in data and obj.kind == 'debit' :
-            data***REMOVED***'amount'***REMOVED*** = obj.amount * -1
+            data['amount'] = obj.amount * -1
         return data

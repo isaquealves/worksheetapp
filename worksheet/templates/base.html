@@ -1,14 +1,14 @@
-***REMOVED***% extends "rest_framework/base.html" %***REMOVED***
-***REMOVED***% block title%***REMOVED*** Worksheet App***REMOVED***% endblock%***REMOVED***
-***REMOVED***% block bootstrap_theme %***REMOVED***
+{% extends "rest_framework/base.html" %}
+{% block title%} Worksheet App{% endblock%}
+{% block bootstrap_theme %}
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
-***REMOVED***% endblock %***REMOVED***
+{% endblock %}
 
-***REMOVED***% block branding %***REMOVED***
-    <a class='navbar-brand' rel="nofollow" href='***REMOVED******REMOVED*** BASE_URL ***REMOVED******REMOVED***'>
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='{{ BASE_URL }}'>
         Worksheet API
     </a>
-***REMOVED***% endblock %***REMOVED***
-***REMOVED***% block content %***REMOVED***
-***REMOVED***% endblock %***REMOVED***
+{% endblock %}
+{% block content %}
+{% endblock %}

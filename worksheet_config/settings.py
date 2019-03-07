@@ -26,12 +26,12 @@ SECRET_KEY = 'kbawwoyw3fw6(d%4cjp26k+*ru7o4nnzt=z4vkc*omas#4!jyr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ***REMOVED******REMOVED***
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
-INSTALLED_APPS = ***REMOVED***
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,9 +43,9 @@ INSTALLED_APPS = ***REMOVED***
     'worksheet',
 
 
-***REMOVED***
+]
 
-MIDDLEWARE = ***REMOVED***
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,25 +53,25 @@ MIDDLEWARE = ***REMOVED***
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-***REMOVED***
+]
 
 ROOT_URLCONF = 'worksheet_config.urls'
 
-TEMPLATES = ***REMOVED***
-    ***REMOVED***
+TEMPLATES = [
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ***REMOVED******REMOVED***,
+        'DIRS': [],
         'APP_DIRS': True,
-        'OPTIONS': ***REMOVED***
-            'context_processors': ***REMOVED***
+        'OPTIONS': {
+            'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ***REMOVED***,
-    ***REMOVED***,
-***REMOVED***,
-***REMOVED***
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'worksheet_config.wsgi.application'
 
@@ -79,33 +79,33 @@ WSGI_APPLICATION = 'worksheet_config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = ***REMOVED***
-    'default': ***REMOVED***
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-***REMOVED***
-***REMOVED***
+    }
+}
 
-DATABASES***REMOVED***'default'***REMOVED*** = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = ***REMOVED***
-    ***REMOVED***
+AUTH_PASSWORD_VALIDATORS = [
+    {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-***REMOVED***,
-    ***REMOVED***
+    },
+    {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-***REMOVED***,
-    ***REMOVED***
+    },
+    {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-***REMOVED***,
-    ***REMOVED***
+    },
+    {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-***REMOVED***,
-***REMOVED***
+    },
+]
 LOGIN_URL = 'worksheet_login'
 LOGIN_REDIRECT_URL = 'transaction_list'
 

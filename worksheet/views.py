@@ -9,10 +9,10 @@ from .forms import TransactionForm
 
 @login_required
 def transaction_list(request):
-    context = ***REMOVED******REMOVED***
+    context = {}
     if request.user:
         transactions = Transaction.objects.all()
-        context***REMOVED***'transactions'***REMOVED*** = transactions
+        context['transactions'] = transactions
 
     return render(request, 'transactions/index.html', context)
 
@@ -30,18 +30,18 @@ def create_transaction(request, form=None):
             return HttpResponseRedirect(reverse('transaction_index'))
 
     form = TransactionForm()
-    view_context = ***REMOVED***
+    view_context = {
         'request': request,
         'form':form
-***REMOVED***
+    }
     return render(request,
                   'transactions/transaction.html',
                   context=view_context)
 
 def auth(request):
     if request.method == 'POST':
-        username = request.POST***REMOVED***'username'***REMOVED***
-        password = request.POST***REMOVED***'password'***REMOVED***
+        username = request.POST['username']
+        password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
