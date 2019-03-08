@@ -6,9 +6,15 @@
 {% endblock %}
 
 {% block branding %}
-    <a class='navbar-brand' rel="nofollow" href='{{ BASE_URL }}'>
+    <a class='navbar-brand' rel="nofollow" href="{% url 'transaction_list'%}">
         Worksheet API
     </a>
+    <a class='navbar-brand' href="{% url 'transaction_index' %}">
+        Webapp view
+    </a>
+    <a class='navbar-brand' href="/docs">
+        Api Docs
+        </a>
 {% endblock %}
 {% block content %}
 {% endblock %}
