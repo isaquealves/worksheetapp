@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config()
+#DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
@@ -127,5 +127,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'

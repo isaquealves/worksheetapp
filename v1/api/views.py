@@ -37,13 +37,13 @@ class TransactionDetail(APIView):
         except  Transaction.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         transaction = self.get_object(pk)
         serializer = TransactionSerializer(transaction)
 
         return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
+    def put(self, request, pk):
 
         transaction = self.get_object(pk)
         serializer = TransactionSerializer(transaction, data=request.data)
@@ -53,7 +53,7 @@ class TransactionDetail(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
+    def delete(self, request, pk):
         transaction = self.get_object(pk)
         transaction.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
